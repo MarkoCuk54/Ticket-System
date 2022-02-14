@@ -7,12 +7,12 @@ def send_mail(customer, dealer, rating, comments):
     smtp_server = 'smtp.mailtrap.io'
     login = '1e30343fd4210c'
     password = '97b1b40c26ce17'
-    message = f"<h3>New Feedback Submission</h3><ul><li>Korisnik: {customer}</li><li>Problem: {dealer}</li><li>Hitno?: {rating}</li><li>Opis: {comments}</li></ul>"
+    message = f"<h3>NOVI TIKET</h3><ul><li>Korisnik: {customer}</li><li>Problem: {dealer}</li><li>Hitno?: {rating}</li><li>Opis: {comments}</li></ul>"
 
     sender_email = 'email1@example.com'
     receiver_email = 'marko.cuk.888@gmail.com'
     msg = MIMEText(message, 'html')
-    msg['Subject'] = 'Lexus Feedback'
+    msg['Subject'] = 'Tiket'
     msg['From'] = sender_email
     msg['To'] = receiver_email
 
