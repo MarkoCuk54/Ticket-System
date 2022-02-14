@@ -17,6 +17,7 @@ html {
   padding: 0 2rem;
 }
 
+
 h1 {
   color: #777;
   margin-top: 15px;
@@ -71,22 +72,12 @@ textarea {
   font-size: 18px;
 
 }
-
-
-
-
-
 #nazad {
   text-align: center;
   margin-top: 200px;
 }
 /*---------------------------------------------*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
   margin: 0px;
 }
 
