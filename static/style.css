@@ -1,25 +1,5 @@
 /* Font */
 
-@font-face {
-  font-family: Poppins-Regular;
-  src: url("../fonts/poppins/Poppins-Regular.ttf");
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url("../fonts/poppins/Poppins-Medium.ttf");
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url("../fonts/poppins/Poppins-Bold.ttf");
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url("../fonts/poppins/Poppins-SemiBold.ttf");
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -654,4 +634,9 @@ textarea.input100 {
 
 .fa option {
   font-weight: 900;
+}
+
+#nazad {
+  font-size: large;
+  border-style: solid;
 }
