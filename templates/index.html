@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="../static/navcss.css" />
     <link
       rel="shortcut icon"
       href="../static/favicon.ico"
@@ -13,9 +14,8 @@
     <title>Emerus Ticket System</title>
   </head>
   <body>
-    <form style="text-align: right; background-color: #5e74cb" action="/admin">
-      <button>Admin Panel</button>
-    </form>
+  
+  
     <div class="container-contact100">
       <div class="wrap-contact100">
         <span class="contact100-form-title" id="naslov">
@@ -28,8 +28,8 @@
           {% endif %}
           <form action="/submit" method="POST">
             <div class="form-group">
-              <h3>- Ime i Prezime</h3>
-              <input type="text" name="customer" placeholder="Ime i Prezime" />
+              <h3>- Ime i prezime</h3>
+              <input type="text" name="customer" placeholder="Upišite svoje ime i prezme..." />
             </div>
             <div class="wrap-input100 input100-select"></div>
             <div class="form-group">
@@ -38,7 +38,7 @@
                 <option value="Software">Software</option>
                 <option value="Hardware">Hardware</option>
                 <option value="File Maker">File Maker</option>
-                <option value="Office">Office</option>
+                <option value="Office">Internet</option>
                 <option value="Ostalo">Ostalo</option>
               </select>
             </div>
@@ -50,19 +50,23 @@
             </div>
             <div class="wrap-input100 input100-select"></div>
             <div class="form-group">
-              <h3>- Opis Kvara</h3>
+              <h3>- Opis kvara</h3>
               <textarea
                 name="comments"
                 id=""
                 cols="30"
-                rows="10"
-                placeholder="Opisite kvar"
+                rows="5"
+                placeholder="Opišite kvar..."
               ></textarea>
             </div>
-            <input type="submit" value="Posalji" class="btn" />
+            <input type="submit" value="Pošalji" class="btn" />
           </form>
+          <form style="text-align: left" action="../templates/admin.html">
+            <button id="admin">Admin panel login</button>
+            </form>
         </div>
       </div>
     </div>
+    
   </body>
 </html>
