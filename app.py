@@ -1,6 +1,7 @@
+from sqlite3 import Cursor
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from send_mail import send_mail
+# from send_mail import send_mail
 
 app = Flask(__name__)
 
@@ -47,13 +48,22 @@ def submit():
         comments = request.form['comments']
         # print(customer, dealer, rating, comments)
         if customer == '' or dealer == '':
-            return render_template('index.html', message='Molim vas popunite obavezna polja')
+            return render_template('index.html', message='Please enter required fields')
         data = Feedback(customer, dealer, rating, comments)
         db.session.add(data)
         db.session.commit()
-        send_mail(customer, dealer, rating, comments)
+        # send_mail(customer, dealer, rating, comments)
         return render_template('success.html')
+
+@app.route("/admin", methods=["GET"])
+def admin():
+    if request.method == "GET":
+        return render_template("admin.html")
+
 
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0', port=5000)
+    app.run(host='127.0.0.1', port=3000)
+
+
+    
