@@ -59,7 +59,7 @@ def submit():
 
 @app.route("/admin")
 def admin_panel():
-    cursor.execute("select * from prijava")
+    cursor.execute("SELECT * FROM prijava ORDER BY id DESC")
     result = cursor.fetchall()
     #print(result)
     return render_template("admin.html", data=result)
