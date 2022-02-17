@@ -14,8 +14,6 @@
     <title>Emerus Ticket System</title>
   </head>
   <body>
-  
-  
     <div class="container-contact100">
       <div class="wrap-contact100">
         <span class="contact100-form-title" id="naslov">
@@ -29,7 +27,11 @@
           <form action="/submit" method="POST">
             <div class="form-group">
               <h3>- Ime i prezime</h3>
-              <input type="text" name="customer" placeholder="Upišite svoje ime i prezme..." />
+              <input
+                type="text"
+                name="customer"
+                placeholder="Upišite svoje ime i prezime..."
+              />
             </div>
             <div class="wrap-input100 input100-select"></div>
             <div class="form-group">
@@ -40,6 +42,10 @@
                 <option value="File Maker">File Maker</option>
                 <option value="Office">Internet</option>
                 <option value="Ostalo">Ostalo</option>
+                <option value="Novi Hardware Komponent">
+                  Trebam novi komponent (molimo navedite pod "Opis" što je točno
+                  potrebno kao npr Miš ili Tipkovnica)
+                </option>
               </select>
             </div>
             <div class="wrap-input100 input100-select"></div>
@@ -61,12 +67,11 @@
             </div>
             <input type="submit" value="Pošalji" class="btn" />
           </form>
-          <form style="text-align: left" action="../templates/admin.html">
+          <form style="text-align: left" action="/admin">
             <button id="admin">Admin panel login</button>
-            </form>
+          </form>
         </div>
       </div>
     </div>
-    
   </body>
 </html>
