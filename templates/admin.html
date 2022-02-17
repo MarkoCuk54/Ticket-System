@@ -12,11 +12,9 @@
   <div class="wrap-input100 input100-select"></div>
 
   <div class="table-wrapper">
-    <div>
-      {% for row in data %}
-      <div>
+    
         <table class="fl-table">
-          <thead>
+          <thead style="text-align: center">
             <tr>
               <th>ID</th>
               <th>Ime i prezime</th>
@@ -28,6 +26,9 @@
               <th>Rješenje</th>
             </tr>
           </thead>
+          <div>
+      {% for row in data %}
+      <div>
           <tbody>
             <tr>
               <td>{{row[0]}}</td>
@@ -41,11 +42,10 @@
               <td><input type="text" id="fname" name="fname" /></td>
             </tr>
           </tbody>
+      {% endfor %}
 
           <tbody></tbody>
         </table>
-      </div>
-      {% endfor %}
-    </div>
+    
   </div>
 </html>
