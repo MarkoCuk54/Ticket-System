@@ -9,5 +9,17 @@
   </head>
   <body>
     <h1>ADMIN PANEL | EMERUS</h1>
+    <div>
+      <div>
+        {% for row in data %}
+        <p>{{ row[0] }}</p>
+        <p>{{ row[1] }}</p>
+        <p>{{ row[2] }}</p>
+        <p>{{ row[3] }}</p>
+        <p>{{ row[4] }}</p>
+        <br />
+        {% endfor %}
+      </div>
+    </div>
   </body>
 </html>

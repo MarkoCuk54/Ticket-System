@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 # from send_mail import send_mail
+import psycopg2
 
 app = Flask(__name__)
+con = psycopg2.connect(database="lexus", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
+cursor = con.cursor()
 
 ENV = 'dev'
 
@@ -56,7 +59,11 @@ def submit():
 
 @app.route("/admin")
 def admin_panel():
-    return render_template("admin.html")
+    cursor.execute("select * from prijava")
+    result = cursor.fetchall()
+    #print(result)
+    return render_template("admin.html", data=result)
+    
 
 
 if __name__ == '__main__':
