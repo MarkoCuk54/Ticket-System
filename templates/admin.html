@@ -13,11 +13,11 @@
 
   <div class="table-wrapper">
     <div>
-        {% for row in data %}
-    <div>
-      <table class="fl-table">
-         <thead>
-          <tr>
+      {% for row in data %}
+      <div>
+        <table class="fl-table">
+          <thead>
+            <tr>
               <th>ID</th>
               <th>Ime i prezime</th>
               <th>Problem</th>
@@ -26,10 +26,10 @@
               <th>Datum</th>
               <th>Vrijeme</th>
               <th>Rješenje</th>
-          </tr>
+            </tr>
           </thead>
           <tbody>
-          <tr>
+            <tr>
               <td>{{row[0]}}</td>
               <td>{{ row[1] }}</td>
               <td>{{ row[2] }}</td>
@@ -37,13 +37,15 @@
               <td>{{ row[4] }}</td>
               <td>{{ row[5] }}</td>
               <td>{{ row[6] }}</td>
-              
-<td> <input type="text" id="fname" name="fname"></td>
-                
-              </tr>
-         <tbody>
-      </table>
+
+              <td><input type="text" id="fname" name="fname" /></td>
+            </tr>
+          </tbody>
+
+          <tbody></tbody>
+        </table>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-  </div>
+</html>
