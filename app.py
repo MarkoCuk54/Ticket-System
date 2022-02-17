@@ -2,6 +2,9 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 # from send_mail import send_mail
 import psycopg2
+from datetime import datetime
+from datetime import date
+
 
 app = Flask(__name__)
 con = psycopg2.connect(database="lexus", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
@@ -20,6 +23,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+now = datetime.now()
+today = date.today()
+
+
 
 class Feedback(db.Model):
     __tablename__ = 'prijava'
@@ -28,12 +35,17 @@ class Feedback(db.Model):
     dealer = db.Column(db.String(200))
     rating = db.Column(db.String(3))
     comments = db.Column(db.Text())
+    date = db.Column(db.Text())
+    time = db.Column(db.Text())
 
-    def __init__(self, customer, dealer, rating, comments):
+
+    def __init__(self, customer, dealer, rating, comments, date, time):
         self.customer = customer
         self.dealer = dealer
         self.rating = rating
         self.comments = comments
+        self.date = date
+        self.time = time
 
 
 @app.route('/')
@@ -48,10 +60,12 @@ def submit():
         dealer = request.form['dealer']
         rating = request.form['rating']
         comments = request.form['comments']
+        date = today
+        time = now.strftime("%H:%M:%S")
         # print(customer, dealer, rating, comments)
         if customer == '' or dealer == '':
             return render_template('index.html', message='Molim vas popunite obavezna polja')
-        data = Feedback(customer, dealer, rating, comments)
+        data = Feedback(customer, dealer, rating, comments, date, time)
         db.session.add(data)
         db.session.commit()
         # send_mail(customer, dealer, rating, comments)
@@ -61,7 +75,7 @@ def submit():
 def admin_panel():
     cursor.execute("SELECT * FROM prijava ORDER BY id DESC")
     result = cursor.fetchall()
-    #print(result)
+    print(result)
     return render_template("admin.html", data=result)
     
 
