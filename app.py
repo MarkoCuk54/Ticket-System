@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 # from send_mail import send_mail
 import psycopg2
@@ -22,7 +22,6 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-
 now = datetime.now()
 today = date.today()
 
@@ -71,12 +70,20 @@ def submit():
         # send_mail(customer, dealer, rating, comments)
         return render_template('success.html')
 
-@app.route("/admin")
-def admin_panel():
-    cursor.execute("SELECT * FROM prijava ORDER BY id DESC")
-    result = cursor.fetchall()
-    print(result)
-    return render_template("admin.html", data=result)
+# Route for handling the login page logic
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'emerus159':
+            error = 'niste ovlašteni koristiti ovu značajku'
+        else:
+              cursor.execute("SELECT * FROM prijava ORDER BY id DESC")
+              result = cursor.fetchall()
+              #print(result)
+              return render_template("admin.html", data=result)
+    return render_template('login.html', error=error)
+
     
 
 
