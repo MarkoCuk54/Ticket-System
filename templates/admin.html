@@ -5,25 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/admin_panel.css" />
-    <title>Document</title>
+    <title>Admin Panel</title>
   </head>
-  <body>
-    <h1>ADMIN PANEL | EMERUS</h1>
+
+  <h1>Admin Panel | EMERUS</h1>
+  <div class="wrap-input100 input100-select"></div>
+
+  <div class="table-wrapper">
     <div>
-      <div>
         {% for row in data %}
-        <div>
-          <p>{{row[0]}}</p>
-          <p style="font-weight: bold">{{ row[1] }}</p>
-          <p>{{ row[2] }}</p>
-          <p>{{ row[3] }}</p>
-          <p>{{ row[4] }}</p>
-          <p>{{ row[5] }}</p>
-          <p>{{ row[6] }}</p>
-          <br />
-        </div>
-        {% endfor %}
-      </div>
+    <div>
+      <table class="fl-table">
+         <thead>
+          <tr>
+              <th>ID</th>
+              <th>Ime i prezime</th>
+              <th>Problem</th>
+              <th>Hitno?</th>
+              <th>Opis kvara</th>
+              <th>Datum</th>
+              <th>Vrijeme</th>
+              <th>Rješenje</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td>{{row[0]}}</td>
+              <td>{{ row[1] }}</td>
+              <td>{{ row[2] }}</td>
+              <td>{{ row[3] }}</td>
+              <td>{{ row[4] }}</td>
+              <td>{{ row[5] }}</td>
+              <td>{{ row[6] }}</td>
+              
+<td> <input type="text" id="fname" name="fname"></td>
+                
+              </tr>
+         <tbody>
+      </table>
     </div>
-  </body>
-</html>
+    {% endfor %}
+  </div>
+  </div>
