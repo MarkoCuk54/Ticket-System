@@ -47,8 +47,17 @@ class Feedback(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
 
+@app.route("/index")
+def it():
+    return render_template("index.html")
+    
+
+@app.route("/odrzavanje")
+def odrzavanje():
+    return render_template("odrzavanje.html")
+    
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -61,9 +70,11 @@ def submit():
         now = datetime.now()
         time = now.strftime("%H:%M:%S")
         # print(customer, dealer, rating, comments)
+        # adding here an if statement to see is it it or odrzavanje
+        # when "it" make a query to see just it stuff and vica versa
         if customer == '' or dealer == '':
             return render_template('index.html', message='Molim vas popunite obavezna polja')
-        data = Feedback(customer, dealer, rating, comments, date, time)
+        data = Feedback( customer, dealer, rating, comments, date, time)
         db.session.add(data)
         db.session.commit()
         # send_mail(customer, dealer, rating, comments)
