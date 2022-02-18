@@ -22,7 +22,6 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-today = date.today()
 
 
 
@@ -58,7 +57,7 @@ def submit():
         dealer = request.form['dealer']
         rating = request.form['rating']
         comments = request.form['comments']
-        date = today
+        date = datetime.today().strftime('%Y-%m-%d')
         now = datetime.now()
         time = now.strftime("%H:%M:%S")
         # print(customer, dealer, rating, comments)
