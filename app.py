@@ -22,7 +22,6 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-now = datetime.now()
 today = date.today()
 
 
@@ -60,6 +59,7 @@ def submit():
         rating = request.form['rating']
         comments = request.form['comments']
         date = today
+        now = datetime.now()
         time = now.strftime("%H:%M:%S")
         # print(customer, dealer, rating, comments)
         if customer == '' or dealer == '':
