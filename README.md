@@ -7,8 +7,13 @@ This is a simple web based ticketing system written in Python using the flask we
 
 ## Screenshots
 
+### Home Page
 ![App Screenshot](https://raw.githubusercontent.com/MarkoCuk54/Ticket-System/main/Capture.PNG)
+
+### Ticket
 ![App Screenshot](https://raw.githubusercontent.com/MarkoCuk54/Ticket-System/main/Capture2.PNG)
+
+### Admin Panel
 ![App Screenshot](https://raw.githubusercontent.com/MarkoCuk54/Ticket-System/main/Capture3.PNG)
 
 
