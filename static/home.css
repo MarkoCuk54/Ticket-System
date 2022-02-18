@@ -1,0 +1,38 @@
+body {
+  background-image: url("/static/slika-tvornice-dron-e1551885367975.jpg");
+}
+
+.button2 {
+  display: inline-block;
+  padding: 0.5em 0.5em;
+  border: 0.16em solid #ffffff;
+  margin: 0 0.3em 100px 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+  transition: all 0.15s;
+  font-size: large;
+}
+
+.button2:active,
+.button2:hover {
+  color: #000000;
+  border-color: #ff0000;
+  opacity: 1;
+}
+
+.button2 {
+  margin: 100px auto;
+  width: 400px;
+  height: 100px;
+  border: 5px solid rgb(0, 0, 0);
+  display: grid;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+  background-color: #f4511e;
+  opacity: 0.6;
+  transition: 0.3s;
+}
