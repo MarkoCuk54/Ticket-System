@@ -71,12 +71,12 @@ def index():
 @app.route("/index")
 def it():
     return render_template("index.html")
-    
+
 
 @app.route("/odrzavanje")
 def odrzavanje():
     return render_template("odrzavanje.html")
-    
+
 
 @app.route('/submit_it', methods=['POST'])
 def submitIt():
@@ -128,12 +128,12 @@ def submitOdrzavanje():
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['username'] == 'admin' or request.form['password'] == 'emerus159':
+        if request.form['username'] == 'admin' and request.form['password'] == 'emerus159':
             cursor.execute("SELECT * FROM prijava ORDER BY id DESC")
             result = cursor.fetchall()
             #print(result)
             return render_template("admin.html", data=result)
-        elif request.form['username'] == 'slaven' or request.form['password'] == 'Emerus2022':
+        elif request.form['username'] == 'slaven' and request.form['password'] == 'Emerus2022':
             cursor.execute("SELECT * FROM odrzavanje ORDER BY id DESC")
             result = cursor.fetchall()
             #print(result)
@@ -143,7 +143,7 @@ def login():
 
     return render_template('login.html', error=error)
 
-    
+
 
 
 if __name__ == '__main__':
