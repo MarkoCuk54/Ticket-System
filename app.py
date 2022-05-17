@@ -94,6 +94,13 @@ def login():
     return render_template('login.html', error=error)
 
 
+@app.route("/delete", methods=["POST"])
+def delete():
+    cursor.execute("DELETE  FROM prijava")
+    cursor.execute("SELECT * FROM prijava ORDER BY id DESC")
+    result = cursor.fetchall()
+    return render_template("admin.html", data=result)
+
 
 
 if __name__ == '__main__':
