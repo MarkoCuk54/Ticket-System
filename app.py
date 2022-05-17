@@ -1,67 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-# from send_mail import send_mail
 import psycopg2
 from datetime import datetime
 from datetime import date
-
+from db import Feedback, Feedback1, db
 
 app = Flask(__name__)
-con = psycopg2.connect(database="lexus", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
+con = psycopg2.connect(database="tiketSystem", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
 cursor = con.cursor()
-
-ENV = 'dev'
-
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/lexus'
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://bwtagambfndfyn:afcb2c1ae42fd106227a08e721391f332a5b197540afee7a37f408c9574ecce6@ec2-3-227-195-74.compute-1.amazonaws.com:5432/d2dqog8c0rni4q'
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-
-
-
-class Feedback(db.Model):
-    __tablename__ = 'prijava'
-    id = db.Column(db.Integer, primary_key=True)
-    customer = db.Column(db.String(200))
-    dealer = db.Column(db.String(200))
-    rating = db.Column(db.String(3))
-    comments = db.Column(db.Text())
-    date = db.Column(db.Text())
-    time = db.Column(db.Text())
-
-
-    def __init__(self, customer, dealer, rating, comments, date, time):
-        self.customer = customer
-        self.dealer = dealer
-        self.rating = rating
-        self.comments = comments
-        self.date = date
-        self.time = time
-
-class Feedback1(db.Model):
-    __tablename__ = 'odrzavanje'
-    id = db.Column(db.Integer, primary_key=True)
-    customer = db.Column(db.String(200))
-    dealer = db.Column(db.String(200))
-    rating = db.Column(db.String(3))
-    comments = db.Column(db.Text())
-    date = db.Column(db.Text())
-    time = db.Column(db.Text())
-
-
-    def __init__(self, customer, dealer, rating, comments, date, time):
-        self.customer = customer
-        self.dealer = dealer
-        self.rating = rating
-        self.comments = comments
-        self.date = date
-        self.time = time
 
 
 @app.route('/')
