@@ -83,12 +83,10 @@ def login():
         if request.form['username'] == 'admin' and request.form['password'] == 'emerus159':
             cursor.execute("SELECT * FROM prijava ORDER BY id DESC")
             result = cursor.fetchall()
-            #print(result)
             return render_template("admin.html", data=result)
         elif request.form['username'] == 'slaven' and request.form['password'] == 'Emerus2022':
             cursor.execute("SELECT * FROM odrzavanje ORDER BY id DESC")
             result = cursor.fetchall()
-            #print(result)
             return render_template("admin.html", data=result)
         else:
             error = 'niste ovlašteni koristiti ovu značajku'
