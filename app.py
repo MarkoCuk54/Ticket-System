@@ -94,13 +94,10 @@ def login():
     return render_template('login.html', error=error)
 
 
-@app.route("/delete", methods=["POST"])
-def delete():
-    cursor.execute("DELETE  FROM prijava")
-    cursor.execute("SELECT * FROM prijava ORDER BY id DESC")
-    result = cursor.fetchall()
-    return render_template("admin.html", data=result)
-
+@app.route('/movie/delete/<int:tiket_id>', methods=['POST'])
+def delete_tiket(tiket_id):
+    cursor.execute("DELETE FROM prijava WHERE id = " + str(tiket_id))
+    return redirect("http://192.168.10.147:5000/login?", code=302)
 
 
 if __name__ == '__main__':
