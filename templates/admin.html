@@ -48,7 +48,10 @@
                         <td>{{ row[4] }}</td>
                         <td>{{ row[5] }}</td>
                         <td>{{ row[6] }}</td>
-                        <td><button>Ukloni</button></td>
+                        <td>
+                            <form action="/delete" method="post"><button type="submit">Ukloni</button>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
                 {% endfor %}
