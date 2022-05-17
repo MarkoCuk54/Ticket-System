@@ -5,10 +5,16 @@ from datetime import datetime
 from datetime import date
 from db import Feedback, Feedback1, db
 
+
 app = Flask(__name__)
 con = psycopg2.connect(database="tiketSystem", user="postgres", password="emerus2705", host="127.0.0.1", port="5432")
 cursor = con.cursor()
 
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.debug = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:emerus2705@localhost/tiketSystem'
+
+db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
